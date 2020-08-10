@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.cysharp.unitask": {
-      "version": "2.0.26",
+      "version": "2.0.27",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -31,7 +31,7 @@
         "com.unity.textmeshpro": "2.0.1",
         "com.demigiant.dotween": "1.2.32"
       },
-      "hash": "5906b5cf0ac01c2217cc4e0e54f8e986bc02cb2a"
+      "hash": "c445f2e67c3872c75a1a5091d1ef2b70165353fb"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
