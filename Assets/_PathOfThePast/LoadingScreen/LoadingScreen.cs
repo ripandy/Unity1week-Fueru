@@ -1,4 +1,3 @@
-using Pyra.Utilities;
 using Pyra.VariableSystem;
 using UniRx;
 using UnityEngine;
@@ -7,11 +6,8 @@ namespace PathOfThePast.LoadingScreen
 {
     public class LoadingScreen : MonoBehaviour
     {
-        [SerializeField] private FloatVariable progress;
+        [SerializeField] private FloatVariable loadProgress;
 
-        private void Start()
-        {
-            progress.Subscribe(value => progress.PrintThis("Progress value")).AddTo(this);
-        }
+        private void Start() => loadProgress.Subscribe(value => Debug.Log($"Load Progress: {value}")).AddTo(this);
     }
 }

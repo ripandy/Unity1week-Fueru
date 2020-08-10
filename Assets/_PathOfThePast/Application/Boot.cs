@@ -9,8 +9,9 @@ namespace PathOfThePast.Boot
         private async void Start()
         {
             await SceneManager.LoadSceneAsync("Statics", LoadSceneMode.Additive);
-            await SceneManager.LoadSceneAsync("LoadingScreen", LoadSceneMode.Additive);
-            
+            await SceneManager.LoadSceneAsync("SplashScreen", LoadSceneMode.Additive);
+
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("Statics"));
         }
     }
 }
