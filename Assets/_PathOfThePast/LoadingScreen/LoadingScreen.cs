@@ -3,7 +3,7 @@ using Pyra.VariableSystem;
 using UniRx;
 using UnityEngine;
 
-namespace ProjectName.LoadingScreen
+namespace PathOfThePast.LoadingScreen
 {
     public class LoadingScreen : MonoBehaviour
     {

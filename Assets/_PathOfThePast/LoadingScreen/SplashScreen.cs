@@ -2,14 +2,15 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Pyra.Components;
 using Pyra.EventSystem;
+using Pyra.VariableSystem;
 using UnityEngine;
 
-namespace ProjectName.LoadingScreen
+namespace PathOfThePast.LoadingScreen
 {
     public class SplashScreen : MonoBehaviour
     {
         [SerializeField] private List<Fadeable> fadeables;
-        [SerializeField] private GameEvent splashDone;
+        [SerializeField] private BoolVariable splashDone;
 
         private async void Start()
         {
@@ -17,7 +18,7 @@ namespace ProjectName.LoadingScreen
             fadeables.ForEach(fadeable => tasks.Add(fadeable.FadeInOut(1f, 3f, 1f)));
             await tasks;
 
-            splashDone.RaiseEvent();
+            splashDone.Value = true;
         }
     }
 }
