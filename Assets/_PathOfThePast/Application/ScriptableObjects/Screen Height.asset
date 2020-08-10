@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eece0c031a3549847b9c16d898a4ae0a, type: 3}
   m_Name: Screen Height
   m_EditorClassIdentifier: 
-  value: 19.2
-  defaultValue: 19.2
-  resetOnDeserialize: 0
-  shouldSkipValueOnSubscribe: 0
+  property:
+    initialValue: 1920
+  skipValueOnSubscribe: 0
