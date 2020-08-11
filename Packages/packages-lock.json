@@ -21,18 +21,6 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
-    "com.ripandy.pyra": {
-      "version": "https://github.com/ripandy/Pyra.git?path=Assets/Pyra",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.cysharp.unitask": "2.0.26",
-        "com.neuecc.unirx": "7.1.0",
-        "com.unity.textmeshpro": "2.0.1",
-        "com.demigiant.dotween": "1.2.32"
-      },
-      "hash": "c445f2e67c3872c75a1a5091d1ef2b70165353fb"
-    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
