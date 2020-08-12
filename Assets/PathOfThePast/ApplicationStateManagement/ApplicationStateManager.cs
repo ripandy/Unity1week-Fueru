@@ -45,12 +45,13 @@ namespace PathOfThePast.ApplicationStateManagement
                 var sceneCountInv = 1f / sceneCount;
                 
                 // TODO : Load all scenes necessary
+                Debug.Log("There's a TODO here!");
                 
                 await SceneManager.LoadSceneAsync("Stage", LoadSceneMode.Additive)
                     .AsAsyncOperationObservable(new Progress<float>(progress => loadProgress.Value += progress * sceneCountInv));
-                
-                Debug.Log($"Should load GamePlay related scenes now");
-                
+                await SceneManager.LoadSceneAsync("Character", LoadSceneMode.Additive)
+                    .AsAsyncOperationObservable(new Progress<float>(progress => loadProgress.Value += progress * sceneCountInv));
+
                 activeScene = "Stage";
             }
 

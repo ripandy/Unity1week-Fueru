@@ -166,6 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7519e829ff1410bbd0e7b9ad02a9003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerGrid: {fileID: 11400000, guid: 9960aef3d8e674b2cbc99926c592e828, type: 2}
+  width: {fileID: 11400000, guid: cb4eff805ecf24607861483567b9a73f, type: 2}
+  height: {fileID: 11400000, guid: a20447b92b5464e728b3bf0d4d4c3723, type: 2}
   tilePrefab: {fileID: 1346964400642770798, guid: bff3f65e5d30e43f899f682d1fc49e1f,
     type: 3}
   gridColors:

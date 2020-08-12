@@ -13,16 +13,11 @@ namespace PathOfThePast.Gameplay
     
     public class Dungeon
     {
-        private const int DefaultWidth = 10;
-        private const int DefaultHeight = 10;
-        
         private readonly List<int> _grids = new List<int>();
         private int _activeWidth;
         private int _activeHeight;
 
         public IList<int> Grids => _grids;
-        public int Width => _activeWidth;
-        public int Height => _activeHeight;
 
         public int this[int index]
         {
@@ -45,12 +40,9 @@ namespace PathOfThePast.Gameplay
         public int ToGridX(int index) => index < GridCount ? index % _activeWidth : -1;
         public int ToGridY(int index) => index < GridCount ? Mathf.FloorToInt((float) index / _activeWidth) : -1;
 
-        public bool IsGridValid(int x, int y) =>
-            x >= _activeWidth && x < _activeWidth &&
-            y >= _activeHeight && y < _activeHeight &&
-            ToIndex(x,y) < GridCount;
+        public bool IsGridValid(int x, int y) => GridHelper.IsGridValid(x, y, _activeWidth, _activeHeight);
 
-        public void GenerateDungeon(int width = DefaultWidth, int height = DefaultHeight)
+        public void GenerateDungeon(int width, int height)
         {
             _grids.Clear();
             

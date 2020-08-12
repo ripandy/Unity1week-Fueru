@@ -44,3 +44,6 @@ TagManager:
   - name: Stage
     uniqueID: 4031698131
     locked: 0
+  - name: Player
+    uniqueID: 2373189759
+    locked: 0

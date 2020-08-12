@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Pyra.VariableSystem;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 
@@ -6,15 +8,24 @@ namespace PathOfThePast.Gameplay
 {
     public class Stage : MonoBehaviour
     {
+        [SerializeField] private IntVariable playerGrid;
+        
+        [Title("Stage Size")]
+        [SerializeField] private IntVariable width;
+        [SerializeField] private IntVariable height;
+        
+        [Title("View")]
         [SerializeField] private GameObject tilePrefab;
         [SerializeField] private Color[] gridColors;
         
         private readonly Dungeon _dungeon = new Dungeon();
         private readonly List<SpriteRenderer> _tileSprites = new List<SpriteRenderer>();
+        
+        private const float GridSize = 2f;
 
         private void Start()
         {
-            _dungeon.GenerateDungeon();
+            _dungeon.GenerateDungeon(width, height);
             InitializeGrids();
         }
 
@@ -22,8 +33,6 @@ namespace PathOfThePast.Gameplay
         {
             var grids = _dungeon.Grids;
             var gridCount = _dungeon.GridCount;
-            var width = _dungeon.Width;
-            var height = _dungeon.Height;
             var count = Mathf.Max(gridCount, _tileSprites.Count);
             for (var i = 0; i < count; i++)
             {
@@ -48,15 +57,7 @@ namespace PathOfThePast.Gameplay
                     sr.color = gridColors[grid];
                     
                     var tr = go.transform;
-                    
-                    var dx = _dungeon.ToGridX(i) * 2;
-                    var dy = _dungeon.ToGridY(i) * 2;
-                    var startX = (-width / 2f + (width % 2 == 0 ? 0.5f : 0)) * 2;
-                    var startY = (height / 2f - (height % 2 == 0 ? 0.5f : 0)) * 2;
-                    var pos = tr.localPosition;
-                        pos.x = startX + dx;
-                        pos.y = startY - dy;
-                    tr.localPosition = pos;
+                    tr.localPosition = GetWorldPosition(i, width, height);
 
                     var text = go.GetComponentInChildren<TMP_Text>();
                     if (text != null)
@@ -64,7 +65,24 @@ namespace PathOfThePast.Gameplay
                 }
 
                 go.SetActive(i < gridCount);
+
+                if (grid == (int) GridType.Entrance)
+                    playerGrid.Value = i;
             }
+        }
+
+        public static Vector3 GetWorldPosition(int gridIndex, int width, int height)
+        {
+            var pos = Vector3.zero;
+            
+            var dx = GridHelper.ToGridX(gridIndex, width, height) * GridSize;
+            var dy = GridHelper.ToGridY(gridIndex, width, height) * GridSize;
+            var startX = (-width / 2f + (width % 2 == 0 ? 0.5f : 0)) * GridSize;
+            var startY = (height / 2f - (height % 2 == 0 ? 0.5f : 0)) * GridSize;
+            pos.x = startX + dx;
+            pos.y = startY - dy;
+            
+            return pos;
         }
     }
 }
