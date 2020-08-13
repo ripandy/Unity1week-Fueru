@@ -166,4 +166,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d3dedf4b6f64751bbbd61811fae400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadProgress: {fileID: 11400000, guid: 46a7ba661ccb340a893e1810fb0f8eaf, type: 2}

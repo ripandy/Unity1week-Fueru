@@ -26,6 +26,7 @@ namespace PathOfThePast.ApplicationStateManagement
 
         private async UniTask LoadScenes(ApplicationStateEnum state)
         {
+            loadProgress.Value = 0;
             if (_activeState == ApplicationStateEnum.Boot)
             {
                 await SceneManager.LoadSceneAsync("LoadingScreen", LoadSceneMode.Additive);
@@ -40,9 +41,18 @@ namespace PathOfThePast.ApplicationStateManagement
             }
             else if (state == ApplicationStateEnum.GamePlay)
             {
+                var sceneCount = 1;
+                var sceneCountInv = 1f / sceneCount;
+                
                 // TODO : Load all scenes necessary
-                Debug.Log($"Should load gameplay related scenes now");
-                // activeScene = "Stage";
+                Debug.Log("There's a TODO here!");
+                
+                await SceneManager.LoadSceneAsync("Stage", LoadSceneMode.Additive)
+                    .AsAsyncOperationObservable(new Progress<float>(progress => loadProgress.Value += progress * sceneCountInv));
+                await SceneManager.LoadSceneAsync("Character", LoadSceneMode.Additive)
+                    .AsAsyncOperationObservable(new Progress<float>(progress => loadProgress.Value += progress * sceneCountInv));
+
+                activeScene = "Stage";
             }
 
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(activeScene));

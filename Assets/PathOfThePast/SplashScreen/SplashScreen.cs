@@ -13,8 +13,8 @@ namespace PathOfThePast.LoadingScreen
 
         private async void Start()
         {
-            List<UniTask> tasks = new List<UniTask>();
-            fadeables.ForEach(fadeable => tasks.Add(fadeable.FadeInOut(1f, 3f, 1f)));
+            var tasks = new List<UniTask>();
+            fadeables.ForEach(fadeable => tasks.Add(fadeable.FadeInOut(.1f, .3f, .1f)));
             await tasks;
 
             applicationState.Value = ApplicationStateEnum.MainMenu;
