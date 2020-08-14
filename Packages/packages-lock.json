@@ -22,7 +22,7 @@
         "com.cysharp.unitask": "2.0.27",
         "com.neuecc.unirx": "7.1.0"
       },
-      "hash": "eea29206f7c9589158977f17e33db57cf14efaa6"
+      "hash": "2e7dea9beadf6a5125bb9ece7d7519bccd4d0292"
     },
     "com.neuecc.unirx": {
       "version": "7.1.0",
@@ -69,6 +69,13 @@
     },
     "com.unity.ide.vscode": {
       "version": "1.2.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.inputsystem": {
+      "version": "1.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
